@@ -6,13 +6,13 @@
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 02:53:10 by ttresori          #+#    #+#             */
-/*   Updated: 2018/12/17 01:25:47 by ttresori         ###   ########.fr       */
+/*   Updated: 2018/12/17 01:29:51 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_select.h"
 
-static void		restore_term_kill(t_reset *s_reset)
+static void	restore_term_kill(t_reset *s_reset)
 {
 	if (tcsetattr(0, 0, &s_reset->term))
 		return ;
@@ -40,7 +40,7 @@ static void	signal_handler(int sig)
 	}
 }
 
-	void		init_signal(void)
+void		init_signal(void)
 {
 	signal(SIGINT, signal_handler);
 	signal(SIGKILL, signal_handler);
